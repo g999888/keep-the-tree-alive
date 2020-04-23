@@ -379,6 +379,8 @@ Game.launch = function(canvasId)
 				map1[l[i][1]][l[i][0]] = 64+i;
 			}
 		}
+		
+		people[0].powers = [5,5,5,5];
 	}
 	
 	makeMap();
