@@ -273,8 +273,7 @@ Game.launch = function(canvasId)
 				score = 0;
 				//people[0].x = 10;
 				//people[0].y = 5;
-				people[0].r = 0;
-				people[0].end = 0;
+				people[0].reset();
 				//people[0].tile=	Math.floor(Math.random()*7)+1;
 				//if (people[0].tile>6) people[0].tile=6;
 				
@@ -571,6 +570,16 @@ var Player = function(l)
 
 Player.prototype =
 {
+	reset: function()
+	{
+		this.select = 0;
+		this.powers = [5,5,5,5];
+		this.all = [[4,5],[14,5],[24,5],[4,15]];
+		this.x = this.all[0][0]; this.y=this.all[0][1];
+		this.r = 0;
+		this.end = 0;
+	},
+	
 	touche: function(dx,dy)
 	{
 /*
@@ -707,6 +716,7 @@ Player.prototype =
 			{
 				// Batteries
 				this.powers[q-48] += 5;
+				//map1[ny][nx] = 17;
 			}
 			else
 			if (q==6) // exit 69
